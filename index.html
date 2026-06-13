@@ -1,1 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Estates | Luxury Real Estate Agency – US & Canada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a2e;
+            background: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        ul {
+            list-style: none;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 8px;
+        }
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: #8b7355;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header p {
+            color: #6b7280;
+            max-width: 580px;
+            margin: 12px auto 0;
+            font-size: 1.05rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+        .btn-primary {
+            background: #1a1a2e;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #2d2d4a;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #1a1a2e;
+            border: 2px solid #1a1a2e;
+        }
+        .btn-outline:hover {
+            background: #1a1a2e;
+            color: #fff;
+        }
+        .btn-gold {
+            background: #c9a96e;
+            color: #fff;
+        }
+        .btn-gold:hover {
+            background: #b8944e;
+            transform: translateY(-2px);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: #c9a96e;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4b5563;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a96e;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover {
+            color: #1a1a2e;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 26px;
+            height: 2px;
+            background: #1a1a2e;
+            transition: 0.3s;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 72px;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+            opacity: 0.2;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+            padding: 80px 0;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 em {
+            color: #c9a96e;
+            font-style: normal;
+        }
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 520px;
+            margin-bottom: 36px;
+        }
+        .hero-badges {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .hero-badges div {
+            text-align: center;
+        }
+        .hero-badges strong {
+            display: block;
+            font-size: 1.8rem;
+            color: #c9a96e;
+            font-weight: 800;
+        }
+        .hero-badges span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .hero-gallery img {
+            border-radius: 8px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .hero-gallery img:hover {
+            transform: scale(1.03);
+        }
+        .hero-gallery img:first-child {
+            grid-column: 1 / -1;
+            height: 260px;
+        }
+
+        .properties {
+            padding: 100px 0;
+            background: #fafafa;
+        }
+        .search-bar {
+            display: flex;
+            gap: 12px;
+            max-width: 640px;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 16px 20px 16px 52px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+        .search-bar input:focus {
+            outline: none;
+            border-color: #c9a96e;
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+        }
+        .search-bar .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+        .search-bar .clear-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #9ca3af;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+            padding: 4px;
+        }
+        .search-bar .clear-btn.visible {
+            display: block;
+        }
+        .country-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .country-tabs button {
+            padding: 10px 28px;
+            border: 2px solid #e5e7eb;
+            background: #fff;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .country-tabs button.active {
+            background: #1a1a2e;
+            color: #fff;
+            border-color: #1a1a2e;
+        }
+        .country-tabs button:hover:not(.active) {
+            border-color: #c9a96e;
+            color: #c9a96e;
+        }
+        .search-results-info {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 24px;
+            min-height: 24px;
+        }
+        .property-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .property-filters button {
+            padding: 10px 24px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .property-filters button.active,
+        .property-filters button:hover {
+            background: #1a1a2e;
+            color: #fff;
+            border-color: #1a1a2e;
+        }
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .property-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+        .property-card .img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+        .property-card .img-wrap img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .property-card:hover .img-wrap img {
+            transform: scale(1.08);
+        }
+        .property-card .country-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        .country-badge.us {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .country-badge.ca {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .property-info {
+            padding: 20px;
+        }
+        .property-info .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .tag-sale {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .tag-rent {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .tag-new {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .property-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .property-info .location {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 12px;
+        }
+        .property-info .location i {
+            margin-right: 6px;
+        }
+        .property-info .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        .property-info .price .currency {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #6b7280;
+            margin-left: 6px;
+        }
+        .property-info .details {
+            display: flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f3f4f6;
+        }
+        .property-info .details i {
+            margin-right: 4px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+            color: #6b7280;
+        }
+        .no-results i {
+            font-size: 3rem;
+            color: #d1d5db;
+            margin-bottom: 16px;
+        }
+        .no-results h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .about {
+            padding: 100px 0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            border-radius: 12px;
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -16px;
+            left: -16px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #c9a96e;
+            border-radius: 12px;
+            z-index: -1;
+        }
+        .about-text h2 {
+            margin-bottom: 16px;
+        }
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 36px;
+        }
+        .about-stats div {
+            text-align: center;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+        .about-stats strong {
+            display: block;
+            font-size: 2rem;
+            color: #c9a96e;
+        }
+        .about-stats span {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .testimonials {
+            padding: 100px 0;
+            background: #fafafa;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: #fff;
+            padding: 36px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+        }
+        .testimonial-card .stars {
+            color: #f59e0b;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .testimonial-card .author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-card .author h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .testimonial-card .author span {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .contact {
+            padding: 100px 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info h2 {
+            margin-bottom: 16px;
+        }
+        .contact-info>p {
+            color: #6b7280;
+            margin-bottom: 36px;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .contact-details .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .contact-details .item i {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f3f4f6;
+            border-radius: 8px;
+            color: #c9a96e;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .contact-details .item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .contact-details .item p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            padding: 14px 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: border 0.3s;
+            background: #fff;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: #c9a96e;
+            box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15);
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .map-section {
+            padding: 0 0 100px;
+        }
+        .map-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 420px;
+            display: block;
+            border: none;
+        }
+
+        .footer {
+            background: #1a1a2e;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-brand h3 {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-brand h3 span {
+            color: #c9a96e;
+        }
+        .footer-brand p {
+            font-size: 0.9rem;
+            max-width: 320px;
+        }
+        .footer h4 {
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+        .footer ul li a {
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer ul li a:hover {
+            color: #c9a96e;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        .footer-social a:hover {
+            background: #c9a96e;
+            border-color: #c9a96e;
+            color: #fff;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: #c9a96e;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(201, 169, 110, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        .scroll-top.visible {
+            display: flex;
+        }
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(201, 169, 110, 0.5);
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 36px;
+            }
+            .hero-badges {
+                justify-content: center;
+            }
+            .hero-gallery {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid #e5e7eb;
+                display: none;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-badges {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form .row {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Prestige<span>.</span>Estates</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#properties">Properties</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn btn-gold" style="padding:10px 24px;font-size:0.85rem;">
+                    <i class="fas fa-phone"></i> (212) 555-0198
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="section-subtitle" style="text-align:left;color:#c9a96e;">Since 2004</p>
+                    <h1>Where <em>Luxury</em> Meets <em>Location</em></h1>
+                    <p>Curating the finest properties across the United States and Canada. From Manhattan penthouses to Vancouver waterfronts — we turn addresses into legacies.</p>
+                    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                        <a href="#properties" class="btn btn-gold"><i class="fas fa-search"></i> Browse Properties</a>
+                        <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">Schedule a Tour</a>
+                    </div>
+                    <div class="hero-badges">
+                        <div>
+                            <strong>$4.2B+</strong>
+                            <span>Total Sales</span>
+                        </div>
+                        <div>
+                            <strong>2,400+</strong>
+                            <span>Properties Sold</span>
+                        </div>
+                        <div>
+                            <strong>155</strong>
+                            <span>Active Listings</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-gallery">
+                    <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Luxury Building">
+                    <img src="https://images.pexels.com/photos/2079249/pexels-photo-2079249.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Modern Interior">
+                    <img src="https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pool Villa">
+                    <img src="https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=600" alt="City View">
+                    <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Luxury Living">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="properties" id="properties">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Our Portfolio</p>
+                <h2>Featured Properties</h2>
+                <p>Hand-picked residences across the United States and Canada — modern, irresistible, and designed for the discerning buyer.</p>
+            </div>
+
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search by title, city, location, or price..." oninput="handleSearch()">
+                <button class="clear-btn" id="clearBtn" onclick="clearSearch()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="country-tabs">
+                <button class="active" onclick="filterCountry('all', this)"><i class="fas fa-globe-americas"></i> All Countries</button>
+                <button onclick="filterCountry('us', this)"><i class="fas fa-flag-usa"></i> United States <span style="font-weight:400;opacity:0.7;">(99)</span></button>
+                <button onclick="filterCountry('ca', this)"><i class="fas fa-maple-leaf"></i> Canada <span style="font-weight:400;opacity:0.7;">(56)</span></button>
+            </div>
+
+            <div class="search-results-info" id="resultsInfo"></div>
+
+            <div class="property-filters">
+                <button class="active" onclick="filterProperties('all', this)">All</button>
+                <button onclick="filterProperties('sale', this)">For Sale</button>
+                <button onclick="filterProperties('rent', this)">For Rent</button>
+                <button onclick="filterProperties('new', this)">New Listings</button>
+            </div>
+            <div class="property-grid" id="propertyGrid"></div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Prestige Estates Team">
+                </div>
+                <div class="about-text">
+                    <p class="section-subtitle">About Us</p>
+                    <h2>Two Decades of <br>Real Estate Excellence</h2>
+                    <p>Founded in 2004 by siblings Alexander and Victoria Crane, Prestige Estates began as a boutique Manhattan brokerage with a simple philosophy — treat every client like family and every property like it's your own.</p>
+                    <p>Today, we're a team of 50+ dedicated agents, analysts, and concierge specialists serving clients across the United States and Canada. Our intimate size means you never get lost in the shuffle; our reach means we can find you the perfect property anywhere in North America.</p>
+                    <p>We don't just sell homes — we curate lifestyles. Every listing in our portfolio undergoes rigorous vetting for location, architectural integrity, and investment potential before it ever reaches our site.</p>
+                    <div class="about-stats">
+                        <div>
+                            <strong>21</strong>
+                            <span>Years of Excellence</span>
+                        </div>
+                        <div>
+                            <strong>50+</strong>
+                            <span>Agents & Staff</span>
+                        </div>
+                        <div>
+                            <strong>80+</strong>
+                            <span>Cities Across US & Canada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Testimonials</p>
+                <h2>What Our Clients Say</h2>
+                <p>Real words from the families, investors, and first-time buyers we've had the privilege of serving across North America.</p>
+            </div>
+            <div class="testimonial-grid" id="testimonialGrid"></div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">Get in Touch</p>
+                <h2>Let's Find Your Next Address</h2>
+                <p>Whether you're buying, selling, or simply curious — our team is here to help.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Headquarters</h4>
+                                <p>425 Park Avenue, Suite 1800<br>New York, NY 10022</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Canada Office</h4>
+                                <p>1 York Street, Suite 1400<br>Toronto, ON M5J 0B6</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>US: (212) 555-0198<br>Canada: (416) 555-0147</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@prestige-estates.com<br>investments@prestige-estates.com</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Office Hours</h4>
+                                <p>Mon–Fri: 9:00 AM – 7:00 PM ET<br>Sat: 10:00 AM – 4:00 PM ET • Sun: By appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="event.preventDefault();alert('Thank you! A member of our team will reach out within 24 hours.');this.reset();">
+                    <div class="row">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="row">
+                        <input type="tel" placeholder="Phone Number">
+                        <select>
+                            <option value="">I'm interested in...</option>
+                            <option>Buying a property</option>
+                            <option>Selling a property</option>
+                            <option>Renting</option>
+                            <option>Investment consultation</option>
+                            <option>Other inquiry</option>
+                        </select>
+                    </div>
+                    <textarea placeholder="Tell us about what you're looking for..." required></textarea>
+                    <button type="submit" class="btn btn-primary" style="align-self:flex-start;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="map-wrapper">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.973244!3d40.754932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258fb5a1c6b5b%3A0x5f7b2c1c8a2f8c1!2s425%20Park%20Ave%2C%20New%20York%2C%20NY%2010022!5e0!3m2!1sen!2sus!4v1"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Prestige Estates Office Location">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Prestige<span>.</span>Estates</h3>
+                <p>Curating the world's finest properties since 2004. An independently owned luxury brokerage serving clients across the United States and Canada.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Property Types</h4>
+                <ul>
+                    <li><a href="#">Apartments</a></li>
+                    <li><a href="#">Villas & Estates</a></li>
+                    <li><a href="#">Commercial</a></li>
+                    <li><a href="#">Land & Development</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Markets</h4>
+                <ul>
+                    <li><a href="#">United States</a></li>
+                    <li><a href="#">Canada</a></li>
+                    <li><a href="#">New York</a></li>
+                    <li><a href="#">Toronto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Prestige Estates. All rights reserved.</span>
+            <span>Equal Housing Opportunity. All information deemed reliable but not guaranteed.</span>
+        </div>
+    </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+
+    const IMG_POOL = [
+        'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/2079249/pexels-photo-2079249.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/2587054/pexels-photo-2587054.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/164522/pexels-photo-164522.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=600',
+        'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600'
+    ];
+
+    function randomImg(index) {
+        return IMG_POOL[index % IMG_POOL.length];
+    }
+
+    // ===== US PROPERTIES (99) =====
+    const usCities = [
+        'New York, NY', 'Los Angeles, CA', 'Chicago, IL', 'Houston, TX', 'Phoenix, AZ',
+        'Philadelphia, PA', 'San Antonio, TX', 'San Diego, CA', 'Dallas, TX', 'Austin, TX',
+        'San Jose, CA', 'Jacksonville, FL', 'Fort Worth, TX', 'Columbus, OH', 'Charlotte, NC',
+        'Indianapolis, IN', 'San Francisco, CA', 'Seattle, WA', 'Denver, CO', 'Nashville, TN',
+        'Oklahoma City, OK', 'El Paso, TX', 'Washington, DC', 'Boston, MA', 'Las Vegas, NV',
+        'Portland, OR', 'Memphis, TN', 'Louisville, KY', 'Baltimore, MD', 'Milwaukee, WI',
+        'Albuquerque, NM', 'Tucson, AZ', 'Fresno, CA', 'Sacramento, CA', 'Mesa, AZ',
+        'Kansas City, MO', 'Atlanta, GA', 'Omaha, NE', 'Colorado Springs, CO', 'Raleigh, NC',
+        'Long Beach, CA', 'Virginia Beach, VA', 'Miami, FL', 'Oakland, CA', 'Minneapolis, MN',
+        'Tampa, FL', 'Tulsa, OK', 'Arlington, TX', 'New Orleans, LA', 'Cleveland, OH'
+    ];
+
+    const usStreets = [
+        '123 Park Avenue', '456 Broadway', '789 Sunset Boulevard', '321 Michigan Avenue',
+        '654 Elm Street', '987 Maple Drive', '147 Oak Lane', '258 Pine Street',
+        '369 Cedar Court', '741 Birch Road', '852 Walnut Avenue', '963 Spruce Way',
+        '159 Willow Drive', '753 Cherry Lane', '951 Ash Street', '357 Hickory Blvd',
+        '468 Sycamore Drive', '572 Poplar Avenue', '681 Laurel Lane', '793 Juniper Road',
+        '135 Lakeview Drive', '246 Mountain Avenue', '579 Ocean Boulevard', '682 River Road',
+        '894 Valley Lane', '111 Harbor View', '222 Skyline Drive', '333 Forest Avenue',
+        '444 Meadow Lane', '555 Summit Road', '666 Riverside Drive', '777 Highland Avenue',
+        '888 Woodland Road', '999 Crestview Drive', '1010 Lakeshore Blvd', '1111 Country Club Lane',
+        '1212 Heritage Drive', '1313 Governor Avenue', '1414 Jefferson Street', '1515 Madison Avenue'
+    ];
+
+    const usTitles = [
+        'Modern City Penthouse', 'Luxury Urban Loft', 'Executive Home', 'Contemporary Estate',
+        'Designer Townhouse', 'Stunning Waterfront', 'Mountain View Retreat', 'Urban Oasis',
+        'Classic Colonial', 'Modern Farmhouse', 'Arts & Crafts Bungalow', 'Mediterranean Villa',
+        'Mid-Century Modern', 'Industrial Chic Loft', 'Coastal Beach House', 'Ski Chalet',
+        'Ranch Style Estate', 'Victorian Gem', 'Contemporary Masterpiece', 'Sun-Drenched Condo',
+        'Skyline Penthouse Suite', 'Garden Terrace Apartment', 'Heritage Brownstone',
+        'Luxury Resort Residence', 'Panoramic View Home', 'Private Gated Estate',
+        'Boutique City Residence', 'Architectural Icon', 'Premier Address Home',
+        'Exclusive Waterfront Villa', 'Charming Craftsman', 'Modern Treehouse Retreat',
+        'Eco-Friendly Smart Home', 'Historic Landmark Residence', 'Ultra-Luxury Condominium',
+        'Penthouse With Terrace', 'Corner Unit With Views', 'Grand Foyer Estate',
+        'Renovated Classic', 'Sleek Downtown Loft'
+    ];
+
+    // ===== CANADA PROPERTIES (56) =====
+    const caCities = [
+        'Toronto, ON', 'Vancouver, BC', 'Montreal, QC', 'Calgary, AB', 'Edmonton, AB',
+        'Ottawa, ON', 'Mississauga, ON', 'Winnipeg, MB', 'Quebec City, QC', 'Hamilton, ON',
+        'Brampton, ON', 'Surrey, BC', 'Halifax, NS', 'London, ON', 'Markham, ON',
+        'Vaughan, ON', 'Kitchener, ON', 'Windsor, ON', 'Victoria, BC', 'Burnaby, BC',
+        'Saskatoon, SK', 'Regina, SK', 'Oakville, ON', 'Richmond, BC', 'Burlington, ON',
+        'St. Catharines, ON', 'Niagara Falls, ON', 'Kelowna, BC', 'Barrie, ON', 'Guelph, ON'
+    ];
+
+    const caStreets = [
+        '100 King Street West', '200 Bay Street', '350 Robson Street', '450 Granville Street',
+        '550 Yonge Street', '675 Queen Street West', '750 Bloor Street', '850 Danforth Avenue',
+        '950 Ste-Catherine Street', '1100 Sherbrooke Street', '1250 Peel Street', '1350 McGill College',
+        '1450 West Georgia Street', '1550 Alberni Street', '1650 Davie Street', '1750 Commercial Drive',
+        '1850 Jasper Avenue', '1950 Whyte Avenue', '2050 Portage Avenue', '2150 Main Street',
+        '2250 Spring Garden Road', '2350 Barrington Street', '2450 Rideau Street', '2550 Wellington Street',
+        '2650 Bank Street', '2750 Lakeshore Road', '2850 Trafalgar Road', '2950 Dundas Street',
+        '3050 Hurontario Street', '3150 Burnhamthorpe Road'
+    ];
+
+    const caTitles = [
+        'Modern Toronto Condo', 'Vancouver Waterfront Suite', 'Montreal Heritage Home',
+        'Calgary Mountain View', 'Edmonton Executive Home', 'Ottawa River Residence',
+        'Mississauga Family Home', 'Winnipeg Character Home', 'Quebec City Charming Residence',
+        'Hamilton Urban Retreat', 'Brampton Modern Home', 'Surrey Contemporary Living',
+        'Halifax Harbour Beauty', 'London Garden Home', 'Markham Luxury Residence',
+        'Vaughan Estate Home', 'Kitchener Modern Bungalow', 'Windsor Waterfront Property',
+        'Victoria Heritage Home', 'Burnaby Mountain Retreat', 'Saskatoon Prairie Modern',
+        'Regina Executive Home', 'Oakville Lakefront Estate', 'Richmond City Living',
+        'Burlington Lakeside Home', 'St. Catharines Family Home', 'Niagara Falls View Property',
+        'Kelowna Vineyard Estate', 'Barrie Recreational Home', 'Guelph Character Home'
+    ];
+
+    // Price distribution logic
+    function getPriceTier(index, total, country) {
+        // 40%: $140k-$370k | 30%: $370k-$510k | 20%: $512k-$803k | 10%: $804k-$1,667k
+        const tierRand = (index * 7 + index * index * 3) % 100;
+        let min, max;
+        if (tierRand < 40) {
+            min = 140000;
+            max = 370000;
+        } else if (tierRand < 70) {
+            min = 370000;
+            max = 510000;
+        } else if (tierRand < 90) {
+            min = 512000;
+            max = 803000;
+        } else {
+            min = 804000;
+            max = 1667000;
+        }
+        const seed = (index * 13 + index * index * 7) % 10000;
+        const price = Math.round(min + (max - min) * (seed / 10000));
+        // Round to nearest 500
+        return Math.round(price / 500) * 500;
+    }
+
+    function formatUSD(amount) {
+        return '$' + amount.toLocaleString('en-US');
+    }
+
+    function formatCAD(amount) {
+        return '$' + amount.toLocaleString('en-CA');
+    }
+
+    function generateProperties() {
+        const properties = [];
+
+        // 99 US properties
+        for (let i = 0; i < 99; i++) {
+            const priceUSD = getPriceTier(i, 99, 'us');
+            const tags = ['sale', 'sale', 'sale', 'rent', 'new'];
+            const tag = tags[i % tags.length];
+            const beds = 1 + (i % 5);
+            const baths = Math.min(beds, 1 + (i % 4));
+            const sqft = 750 + (i * 47) % 3500;
+
+            const cityIdx = i % usCities.length;
+            const streetIdx = (i * 3) % usStreets.length;
+            const titleIdx = i % usTitles.length;
+
+            properties.push({
+                title: usTitles[titleIdx],
+                location: usStreets[streetIdx] + ', ' + usCities[cityIdx],
+                price: formatUSD(priceUSD),
+                rawPrice: priceUSD,
+                beds: beds,
+                baths: baths,
+                sqft: sqft,
+                tag: tag,
+                country: 'us',
+                currency: 'USD',
+                img: randomImg(i)
+            });
+        }
+
+        // 56 Canada properties
+        for (let i = 0; i < 56; i++) {
+            const priceCAD = getPriceTier(i + 99, 56, 'ca');
+            const tags = ['sale', 'sale', 'rent', 'new', 'sale'];
+            const tag = tags[i % tags.length];
+            const beds = 1 + ((i + 3) % 5);
+            const baths = Math.min(beds, 1 + ((i + 2) % 4));
+            const sqft = 700 + ((i + 11) * 53) % 3200;
+
+            const cityIdx = i % caCities.length;
+            const streetIdx = (i * 5) % caStreets.length;
+            const titleIdx = i % caTitles.length;
+
+            properties.push({
+                title: caTitles[titleIdx],
+                location: caStreets[streetIdx] + ', ' + caCities[cityIdx],
+                price: formatCAD(priceCAD),
+                rawPrice: priceCAD,
+                beds: beds,
+                baths: baths,
+                sqft: sqft,
+                tag: tag,
+                country: 'ca',
+                currency: 'CAD',
+                img: randomImg(i + 50)
+            });
+        }
+
+        return properties;
+    }
+
+    const properties = generateProperties();
+    let currentFilter = 'all';
+    let currentSearch = '';
+    let currentCountry = 'all';
+
+    function renderProperties() {
+        const grid = document.getElementById('propertyGrid');
+        const resultsInfo = document.getElementById('resultsInfo');
+        const searchTerm = currentSearch.toLowerCase().trim();
+
+        let filtered = properties;
+
+        // Country filter
+        if (currentCountry !== 'all') {
+            filtered = filtered.filter(p => p.country === currentCountry);
+        }
+
+        // Tag filter
+        if (currentFilter !== 'all') {
+            filtered = filtered.filter(p => p.tag === currentFilter);
+        }
+
+        // Search filter
+        if (searchTerm) {
+            filtered = filtered.filter(p =>
+                p.title.toLowerCase().includes(searchTerm) ||
+                p.location.toLowerCase().includes(searchTerm) ||
+                p.price.toLowerCase().includes(searchTerm) ||
+                p.location.split(',')[0].toLowerCase().includes(searchTerm) ||
+                p.location.split(',')[1]?.trim().toLowerCase().includes(searchTerm) ||
+                p.country === 'us' && searchTerm.includes('unit') ||
+                p.country === 'ca' && searchTerm.includes('canada') ||
+                p.currency.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        const countryName = currentCountry === 'all' ? 'All Countries' : (currentCountry === 'us' ? 'United States' : 'Canada');
+        const tagName = currentFilter === 'all' ? 'All' : currentFilter.charAt(0).toUpperCase() + currentFilter.slice(1);
+
+        if (searchTerm) {
+            const totalInView = currentCountry === 'all' ? properties.length : properties.filter(p => p.country === currentCountry).length;
+            resultsInfo.textContent = `Showing ${filtered.length} of ${totalInView} properties matching "${currentSearch.trim()}" in ${countryName}`;
+        } else {
+            const totalInView = currentCountry === 'all' ? properties.length : properties.filter(p => p.country === currentCountry).length;
+            if (currentFilter === 'all') {
+                resultsInfo.textContent = `Showing all ${totalInView} properties in ${countryName}`;
+            } else {
+                const totalFiltered = filtered.length;
+                resultsInfo.textContent = `Showing ${totalFiltered} ${tagName} properties in ${countryName}`;
+            }
+        }
+
+        if (filtered.length === 0) {
+            grid.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>No properties found</h3>
+                    <p>Try adjusting your search, filter, or country selection.</p>
+                </div>
+            `;
+            return;
+        }
+
+        grid.innerHTML = filtered.map((p, idx) => {
+            const tagLabel = { sale: 'For Sale', rent: 'For Rent', new: 'New Listing' } [p.tag];
+            const tagClass = { sale: 'tag-sale', rent: 'tag-rent', new: 'tag-new' } [p.tag];
+            const countryLabel = p.country === 'us' ? 'United States' : 'Canada';
+            const countryClass = p.country === 'us' ? 'us' : 'ca';
+            return `
+                <div class="property-card" style="animation:fadeIn 0.3s ease ${idx * 0.02}s both">
+                    <div class="img-wrap">
+                        <span class="country-badge ${countryClass}">${countryLabel}</span>
+                        <img src="${p.img}" alt="${p.title}" loading="lazy">
+                    </div>
+                    <div class="property-info">
+                        <span class="tag ${tagClass}">${tagLabel}</span>
+                        <h3>${p.title}</h3>
+                        <div class="location"><i class="fas fa-map-pin"></i>${p.location}</div>
+                        <div class="price">${p.price} <span class="currency">${p.currency}</span></div>
+                        <div class="details">
+                            <span><i class="fas fa-bed"></i> ${p.beds} Beds</span>
+                            <span><i class="fas fa-bath"></i> ${p.baths} Baths</span>
+                            <span><i class="fas fa-vector-square"></i> ${p.sqft.toLocaleString()} sqft</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function filterProperties(filter, btn) {
+        currentFilter = filter;
+        document.querySelectorAll('.property-filters button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProperties();
+    }
+
+    function filterCountry(country, btn) {
+        currentCountry = country;
+        document.querySelectorAll('.country-tabs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderProperties();
+    }
+
+    function handleSearch() {
+        const input = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        currentSearch = input.value;
+        if (currentSearch.length > 0) {
+            clearBtn.classList.add('visible');
+        } else {
+            clearBtn.classList.remove('visible');
+        }
+        renderProperties();
+    }
+
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('clearBtn').classList.remove('visible');
+        currentSearch = '';
+        renderProperties();
+        document.getElementById('searchInput').focus();
+    }
+
+    renderProperties();
+
+    // ===== TESTIMONIALS =====
+    const testimonials = [
+        { name: 'Eleanor Whitmore', role: 'Home Buyer, New York', text: 'Prestige Estates made what I thought would be an overwhelming experience feel effortless. Victoria personally walked us through every step, and we closed on our dream Upper East Side home in under 45 days.',
+        img: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150' },
+        { name: 'James & Priya Kapoor', role: 'Sellers, Toronto', text: 'We interviewed three agencies before choosing Prestige. They sold our Toronto home in 11 days for 97% of asking price. Their marketing presentation was unlike anything we\'d seen — drone footage, virtual staging, the works.',
+        img: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150' },
+        { name: 'Marcus DeLuca', role: 'Investor, Multiple Properties', text: 'As a real estate investor, I need an agency that understands cap rates, 1031 exchanges, and cross-border investing. Alexander and his team speak my language. They\'ve helped me acquire properties in both the US and Canada.',
+        img: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150' },
+        { name: 'Caroline Beaumont', role: 'Renter, Vancouver', text: 'I needed a short-term furnished rental in Vancouver and was dreading the process. Prestige found me an incredible waterfront apartment that wasn\'t even listed publicly yet. Stunning views, flawless experience.',
+        img: 'https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=150' },
+        { name: 'David & Sarah Chen', role: 'First-Time Buyers, Los Angeles', text: 'We were nervous first-time buyers with a million questions. Our agent answered every single one with patience and honesty. Never once did we feel pressured. We found our perfect modern home in Silver Lake.',
+        img: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=150' },
+        { name: 'Richard Fairchild IV', role: 'Luxury Buyer, Montreal', text: 'I\'ve bought and sold properties across North America. Prestige Estates is, without question, the most professional agency I\'ve ever worked with. Discreet, knowledgeable, and deeply connected to both US and Canadian markets.',
+        img: 'https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=150' }
+    ];
+
+    document.getElementById('testimonialGrid').innerHTML = testimonials.map(t => `
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <blockquote>"${t.text}"</blockquote>
+            <div class="author">
+                <img src="${t.img}" alt="${t.name}" loading="lazy">
+                <div>
+                    <h4>${t.name}</h4>
+                    <span>${t.role}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // ===== SCROLL TO TOP =====
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scrollTop');
+        if (window.scrollY > 600) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    });
+</script>
+</body>
+</html>
